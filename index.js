@@ -11,7 +11,7 @@ const io = socketIo(server);
 const db = new sqlite3.Database('data.db');
 
 db.serialize(() => {
-  db.run('CREATE TABLE users (id TEXT, name TEXT)');
+  db.run('CREATE TABLE IF NOT EXISTS users (id TEXT, name TEXT)');
 });
 
 // Serve static files from the React app
